@@ -1,5 +1,6 @@
 import java.util.*; 
 public class App {
+   // hàm tìm số nguyên tố 
     public static boolean isnst(int n) {
         if (n < 2) {
             return false;
@@ -13,6 +14,7 @@ public class App {
         }
         return true;
     }
+    // hàm sắp xếp tăng dần theo cột
     public static void sxcot(int A[][], int n, int m)
     {
         for(int k = 0; k<m ; k++)
@@ -27,8 +29,10 @@ public class App {
     }
 
     public static void main(String args[]) {
+    // nhập hàng và cột
         int n;
         int m;
+     
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập vào số dòng n: ");
         n = scanner.nextInt();
@@ -36,13 +40,15 @@ public class App {
         m = scanner.nextInt();
         
         int A[][] = new int[n][m];
+// nhập ma trận nxm
         System.out.println("Nhập vào ma trân NxM: ");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 A[i][j] = scanner.nextInt();
             }
         }
-        scanner.close(); 
+        scanner.close();
+// đặt max là số đầu tiên của hàng 1 và so sánh để tìm ra số lớn nhất 
         int max = A[0][0];
         int n2= 0, m2 =0 ;
         for (int i = 0; i < n; i++) {
@@ -54,11 +60,12 @@ public class App {
                 }
             }
         }
-             
+             // in ra số lớn nhất
         System.out.println("phan a: A[" + n2 + "]" + "[" + m2 + "]" + " = " + max);
         System.out.println("phan b: ");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
+      // nếu số nào là số nguyên tố in ra màn hình còn số nào k là số nguyên tố in ra 0
                 if ( isnst(A[i][j]) == true ) {
                     System.out.printf("%d ", A[i][j] );
                 }
@@ -68,6 +75,7 @@ public class App {
             }
             System.out.print("\n");
         }
+// in ra màn hình sắp xếp theo cột
         System.out.println("phan c: ");    
         sxcot(A,m,n);
         for (int i = 0; i < n; i++) {
